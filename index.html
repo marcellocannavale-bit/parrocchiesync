@@ -316,27 +316,27 @@ html,body{height:100%;width:100%;overflow-x:hidden;font-family:'Nunito',sans-ser
     <div class="sheet-head"><h3>Nuovo Evento</h3><button class="sheet-close" onclick="closeSheet('evSheet')">✕</button></div>
     <div class="sheet-body">
       <input type="hidden" id="evId">
-      <div class="form-group">abel class="form-label">TITOLO *</label><input class="form-input" id="evTitle" placeholder="Titolo evento"></div>
+      <div class="form-group"><label class="form-label">TITOLO *</label><input class="form-input" id="evTitle" placeholder="Titolo evento"></div>
       <div class="form-row">
-        <div class="form-group">abel class="form-label">DATA *</label><input type="date" class="form-input" id="evDate"></div>
-        <div class="form-group">abel class="form-label">ORA</label><input type="time" class="form-input" id="evTime"></div>
+        <div class="form-group"><label class="form-label">DATA *</label><input type="date" class="form-input" id="evDate"></div>
+        <div class="form-group"><label class="form-label">ORA</label><input type="time" class="form-input" id="evTime"></div>
       </div>
-      <div class="form-group">abel class="form-label">LUOGO</label><input class="form-input" id="evPlace" placeholder="Luogo"></div>
-      <div class="form-group">abel class="form-label">PARROCCHIA</label>
+      <div class="form-group"><label class="form-label">LUOGO</label><input class="form-input" id="evPlace" placeholder="Luogo"></div>
+      <div class="form-group"><label class="form-label">PARROCCHIA</label>
         <select class="form-select" id="evParr">
           <option value="condiviso">🟢 Entrambe le parrocchie</option>
           <option value="valle">🔴 Valle — S. Maria Assunta</option>
           <option value="trinita">🔵 Trinità — SS. Trinità dei Poveri</option>
         </select>
       </div>
-      <div class="form-group">abel class="form-label">RESPONSABILE</label>
+      <div class="form-group"><label class="form-label">RESPONSABILE</label>
         <select class="form-select" id="evResp">
           <option value="entrambi">Entrambi</option>
           <option value="1">Don Marcello</option>
           <option value="2">Don Mario</option>
         </select>
       </div>
-      <div class="form-group">abel class="form-label">NOTE</label><textarea class="form-textarea" id="evNote" placeholder="Note aggiuntive..."></textarea></div>
+      <div class="form-group"><label class="form-label">NOTE</label><textarea class="form-textarea" id="evNote" placeholder="Note aggiuntive..."></textarea></div>
     </div>
     <div class="sheet-foot"><button class="btn-sec" onclick="closeSheet('evSheet')">Annulla</button><button class="btn-pri" onclick="saveEvent()">Salva</button></div>
   </div>
@@ -349,17 +349,17 @@ html,body{height:100%;width:100%;overflow-x:hidden;font-family:'Nunito',sans-ser
     <div class="sheet-head"><h3>Nuova Attività</h3><button class="sheet-close" onclick="closeSheet('tdSheet')">✕</button></div>
     <div class="sheet-body">
       <input type="hidden" id="tdId">
-      <div class="form-group">abel class="form-label">ATTIVITÀ *</label><input class="form-input" id="tdTitle" placeholder="Descrizione"></div>
-      <div class="form-group">abel class="form-label">DETTAGLI</label><textarea class="form-textarea" id="tdDesc" placeholder="Dettagli..."></textarea></div>
+      <div class="form-group"><label class="form-label">ATTIVITÀ *</label><input class="form-input" id="tdTitle" placeholder="Descrizione"></div>
+      <div class="form-group"><label class="form-label">DETTAGLI</label><textarea class="form-textarea" id="tdDesc" placeholder="Dettagli..."></textarea></div>
       <div class="form-row">
-        <div class="form-group">abel class="form-label">PRIORITÀ</label>
+        <div class="form-group"><label class="form-label">PRIORITÀ</label>
           <select class="form-select" id="tdPri">
             <option value="alta">🔴 Alta</option>
             <option value="media" selected>🟡 Media</option>
             <option value="bassa">🟢 Bassa</option>
           </select>
         </div>
-        <div class="form-group">abel class="form-label">PARROCCHIA</label>
+        <div class="form-group"><label class="form-label">PARROCCHIA</label>
           <select class="form-select" id="tdParr">
             <option value="condiviso">Entrambe</option>
             <option value="valle">Valle</option>
@@ -367,7 +367,7 @@ html,body{height:100%;width:100%;overflow-x:hidden;font-family:'Nunito',sans-ser
           </select>
         </div>
       </div>
-      <div class="form-group">abel class="form-label">ASSEGNATO A</label>
+      <div class="form-group"><label class="form-label">ASSEGNATO A</label>
         <select class="form-select" id="tdWho">
           <option value="entrambi">Entrambi</option>
           <option value="1">Don Marcello</option>
@@ -386,10 +386,10 @@ html,body{height:100%;width:100%;overflow-x:hidden;font-family:'Nunito',sans-ser
     <div class="sheet-head"><h3>Nuova Voce di Spesa</h3><button class="sheet-close" onclick="closeSheet('spSheet')">✕</button></div>
     <div class="sheet-body">
       <input type="hidden" id="spId">
-      <div class="form-group">abel class="form-label">DESCRIZIONE *</label><input class="form-input" id="spDesc" placeholder="Descrizione"></div>
+      <div class="form-group"><label class="form-label">DESCRIZIONE *</label><input class="form-input" id="spDesc" placeholder="Descrizione"></div>
       <div class="form-row">
-        <div class="form-group">abel class="form-label">IMPORTO (€) *</label><input type="number" step="0.01" class="form-input" id="spAmt" placeholder="0.00"></div>
-        <div class="form-group">abel class="form-label">TIPO</label>
+        <div class="form-group"><label class="form-label">IMPORTO (€) *</label><input type="number" step="0.01" class="form-input" id="spAmt" placeholder="0.00"></div>
+        <div class="form-group"><label class="form-label">TIPO</label>
           <select class="form-select" id="spTipo">
             <option value="uscita">Uscita</option>
             <option value="entrata">Entrata</option>
@@ -397,22 +397,22 @@ html,body{height:100%;width:100%;overflow-x:hidden;font-family:'Nunito',sans-ser
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group">abel class="form-label">CATEGORIA</label>
+        <div class="form-group"><label class="form-label">CATEGORIA</label>
           <select class="form-select" id="spCat">
             <option>Utenze</option><option>Manutenzione</option><option>Liturgia</option>
             <option>Carità</option><option>Ufficio</option><option>Offerte</option><option>Altro</option>
           </select>
         </div>
-        <div class="form-group">abel class="form-label">DATA</label><input type="date" class="form-input" id="spDate"></div>
+        <div class="form-group"><label class="form-label">DATA</label><input type="date" class="form-input" id="spDate"></div>
       </div>
-      <div class="form-group">abel class="form-label">PARROCCHIA *</label>
+      <div class="form-group"><label class="form-label">PARROCCHIA *</label>
         <select class="form-select" id="spParr">
           <option value="condiviso">Entrambe le parrocchie</option>
           <option value="valle">Valle — S. Maria Assunta</option>
           <option value="trinita">Trinità — SS. Trinità dei Poveri</option>
         </select>
       </div>
-      <div class="form-group">abel class="form-label">REGISTRATA DA</label>
+      <div class="form-group"><label class="form-label">REGISTRATA DA</label>
         <select class="form-select" id="spWho">
           <option value="1">Don Marcello</option>
           <option value="2">Don Mario</option>
@@ -431,8 +431,8 @@ html,body{height:100%;width:100%;overflow-x:hidden;font-family:'Nunito',sans-ser
     <div class="sheet-body">
       <input type="hidden" id="noteP">
       <input type="hidden" id="noteId">
-      <div class="form-group">abel class="form-label">TITOLO</label><input class="form-input" id="noteTitle" placeholder="Titolo nota"></div>
-      <div class="form-group">abel class="form-label">CONTENUTO *</label><textarea class="form-textarea" id="noteBody" placeholder="Scrivi qui..."></textarea></div>
+      <div class="form-group"><label class="form-label">TITOLO</label><input class="form-input" id="noteTitle" placeholder="Titolo nota"></div>
+      <div class="form-group"><label class="form-label">CONTENUTO *</label><textarea class="form-textarea" id="noteBody" placeholder="Scrivi qui..."></textarea></div>
     </div>
     <div class="sheet-foot"><button class="btn-sec" onclick="closeSheet('noteSheet')">Annulla</button><button class="btn-pri" onclick="saveNote()">Salva</button></div>
   </div>
@@ -446,12 +446,12 @@ html,body{height:100%;width:100%;overflow-x:hidden;font-family:'Nunito',sans-ser
     <div class="sheet-body">
       <input type="hidden" id="peP">
       <input type="hidden" id="peId">
-      <div class="form-group">abel class="form-label">TITOLO *</label><input class="form-input" id="peTitle" placeholder="Titolo"></div>
+      <div class="form-group"><label class="form-label">TITOLO *</label><input class="form-input" id="peTitle" placeholder="Titolo"></div>
       <div class="form-row">
-        <div class="form-group">abel class="form-label">DATA *</label><input type="date" class="form-input" id="peDate"></div>
-        <div class="form-group">abel class="form-label">ORA</label><input type="time" class="form-input" id="peTime"></div>
+        <div class="form-group"><label class="form-label">DATA *</label><input type="date" class="form-input" id="peDate"></div>
+        <div class="form-group"><label class="form-label">ORA</label><input type="time" class="form-input" id="peTime"></div>
       </div>
-      <div class="form-group">abel class="form-label">NOTE</label><textarea class="form-textarea" id="peNote" placeholder="Note..."></textarea></div>
+      <div class="form-group"><label class="form-label">NOTE</label><textarea class="form-textarea" id="peNote" placeholder="Note..."></textarea></div>
     </div>
     <div class="sheet-foot"><button class="btn-sec" onclick="closeSheet('peSheet')">Annulla</button><button class="btn-pri" onclick="savePE()">Salva</button></div>
   </div>
