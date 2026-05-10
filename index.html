@@ -1315,7 +1315,7 @@ renderPersonal();
     window.closeSheet && window.closeSheet('shSpesa');
   }
 
-  window.delSpesa = async function(id){
+  window.saveNote=async function(){const body=document.getElementById('noteBody').value.trim();if(!body){alert('Contenuto obbligatorio.');return;}const p=document.getElementById('noteP').value;const title=document.getElementById('noteTitle').value.trim()||'Nota';const eid=document.getElementById('noteId').value;const data={title,body,date:new Date().toLocaleDateString('it-IT'),p};if(eid){await set(ref(db,'personal/'+p+'/notes/'+eid),data);}else{await push(ref(db,'personal/'+p+'/notes'),data);}window.closeSheet('shNote');}; window.delNote=async function(p,id){await remove(ref(db,'personal/'+p+'/notes/'+id));}; window.savePE=async function(){const title=document.getElementById('peTitle').value.trim();const date=document.getElementById('peDate').value;if(!title||!date){alert('Titolo e data obbligatori.');return;}const p=document.getElementById('peP').value;const eid=document.getElementById('peId').value;const data={title,date,time:document.getElementById('peTime').value,note:document.getElementById('peNote').value.trim(),p};if(eid){await set(ref(db,'personal/'+p+'/events/'+eid),data);}else{await push(ref(db,'personal/'+p+'/events'),data);}window.closeSheet('shPE');}; window.delPE=async function(p,id){await remove(ref(db,'personal/'+p+'/events/'+id));}; window.delSpesa = async function(id){
     await remove(ref(db, `shared/spese/${id}`));
   }
 </script>
