@@ -501,7 +501,7 @@ html, body {
     <!-- Don Marcello -->
     <div class="personal-block" id="pb1">
       <div class="personal-hdr vh">
-        <img id="personalLogoValle" class="personal-logo" src="" alt="Valle">
+        <img id="personalLogoValle" class="personal-logo" src="don-marcello.jpg" alt="Don Marcello" style="border-radius:50%;object-fit:cover;object-position:top;">
         <div class="personal-hdr-text"><h2>DON MARCELLO</h2><p>Parroco</p></div>
       </div>
       <div class="personal-tabs">
@@ -1158,7 +1158,7 @@ function renderPersonal(){
 
 // ═══ INJECT LOGOS ═══
 function injectLogos(){
-  const logoIds = ['hdrLogoValle','pillLogoValle','personalLogoValle','summLogoValle'];
+  const logoIds = ['hdrLogoValle','pillLogoValle','summLogoValle'];
   logoIds.forEach(id=>{ const el=document.getElementById(id); if(el) el.src=LOGO_VALLE; });
   const logoIdsT = ['hdrLogoTrinita','pillLogoTrinita','personalLogoTrinita','summLogoTrinita'];
   logoIdsT.forEach(id=>{ const el=document.getElementById(id); if(el) el.src=LOGO_TRINITA; });
