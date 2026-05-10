@@ -976,5 +976,6 @@ document.getElementById('spDate').value = today.toISOString().split('T')[0];
                                                                                         }
                                                                                         });
 </script>
+<script>var _P={1:'1234',2:'5678'};document.addEventListener('click',function(e){var t=e.target;var id=t.id||'';if(id==='pp1'||id==='pp2'){e.stopImmediatePropagation();e.preventDefault();var n=id==='pp1'?1:2;var nm=n===1?'Don Marcello':'Don Mario';var p=prompt('PIN per '+nm+':');if(p===null)return;if(p===_P[n]){if(window.setActivePriest)window.setActivePriest(n);}else{alert('PIN errato.');}}},true);</script>
 </body>
 </html>
