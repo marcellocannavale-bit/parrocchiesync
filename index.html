@@ -501,7 +501,7 @@ html, body {
     <!-- Don Marcello -->
     <div class="personal-block" id="pb1">
       <div class="personal-hdr vh">
-        <img id="personalLogoValle" class="personal-logo" src="don-marcello.jpg" alt="Don Marcello" style="border-radius:50%;object-fit:cover;object-position:top;">
+        <img id="personalLogoValle" class="personal-logo" src="WhatsApp Image 2026-05-10 at 16.02.34.jpeg" alt="Don Marcello" style="border-radius:50%;object-fit:cover;object-position:top;">
         <div class="personal-hdr-text"><h2>DON MARCELLO</h2><p>Parroco</p></div>
       </div>
       <div class="personal-tabs">
@@ -514,7 +514,7 @@ html, body {
     <!-- Don Mario -->
     <div class="personal-block" id="pb2">
       <div class="personal-hdr th">
-        <img id="personalLogoTrinita" class="personal-logo personal-logo-trinita" src="" alt="Trinità">
+        <img id="personalLogoTrinita" class="personal-logo" src="don-mario.jpg" alt="Don Mario" style="border-radius:50%;object-fit:cover;object-position:top;">
         <div class="personal-hdr-text"><h2>DON MARIO</h2><p>Viceparroco</p></div>
       </div>
       <div class="personal-tabs">
@@ -1160,7 +1160,7 @@ function renderPersonal(){
 function injectLogos(){
   const logoIds = ['hdrLogoValle','pillLogoValle','summLogoValle'];
   logoIds.forEach(id=>{ const el=document.getElementById(id); if(el) el.src=LOGO_VALLE; });
-  const logoIdsT = ['hdrLogoTrinita','pillLogoTrinita','personalLogoTrinita','summLogoTrinita'];
+  const logoIdsT = ['hdrLogoTrinita','pillLogoTrinita','summLogoTrinita'];
   logoIdsT.forEach(id=>{ const el=document.getElementById(id); if(el) el.src=LOGO_TRINITA; });
 }
 injectLogos();
