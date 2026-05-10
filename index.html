@@ -1217,7 +1217,7 @@ renderPersonal();
     });
   };
 
-  bindCollection('shared/events', (arr) => { window.events = arr; }, () => window.renderCalendar && window.renderCalendar());
+  onValue(ref(db,'personal/1/notes'),s=>{persNotes[1]=normalizeCollection(s.val());window.renderPersonal&&window.renderPersonal();});onValue(ref(db,'personal/2/notes'),s=>{persNotes[2]=normalizeCollection(s.val());window.renderPersonal&&window.renderPersonal();});onValue(ref(db,'personal/1/events'),s=>{persEvt[1]=normalizeCollection(s.val());window.renderPersonal&&window.renderPersonal();});onValue(ref(db,'personal/2/events'),s=>{persEvt[2]=normalizeCollection(s.val());window.renderPersonal&&window.renderPersonal();});bindCollection('shared/events', (arr) => { window.events = arr; }, () => window.renderCalendar && window.renderCalendar());
   bindCollection('shared/todos', (arr) => { window.todos = arr; }, () => window.renderTodos && window.renderTodos());
   bindCollection('shared/spese', (arr) => {
     window.spese = arr.map(s => ({ ...s, amt: Number(s.amt || 0) }));
