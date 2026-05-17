@@ -635,43 +635,6 @@ function renderEvents() {
     list.appendChild(div);
   });
   }
-function renderEvents() {
-  const list = document.getElementById('evtList');
-  const evs = Object.entries(allEvents)
-    .filter(([,e]) => {
-      const [y,m] = (e.date||'').split('-');
-      return parseInt(y)===currentYear && parseInt(m)-1===currentMonth;
-    })
-    .sort(([,a],[,b]) => (a.date+a.time||'').localeCompare(b.date+b.time||''));
-  if(!evs.length) { list.innerHTML='<div class="empty"><div class="empty-icon">📅</div><div class="empty-text">Nessun evento questo mese</div></div>'; return; }
-  list.innerHTML = '<div class="evt-section-head">Tutti gli eventi del mese</div>';
-  evs.forEach(([id,ev]) => {
-    const cls = ev.parr==='valle'?'vv':ev.parr==='trinita'?'tv':'cv';
-    const chip = ev.parr==='valle'?'chip-v':ev.parr==='trinita'?'chip-t':'chip-c';
-    const label = ev.parr==='valle'?'Valle':ev.parr==='trinita'?'Trinità':'Entrambe';
-    const resp = ev.resp==='1'?'Don Marcello':ev.resp==='2'?'Don Mario':'Entrambi';
-    const div = document.createElement('div');
-    div.className = 'evt-card ' + cls;
-    div.innerHTML = `
-      <div class="evt-card-inner">
-        <div class="evt-card-top">
-          <div class="evt-card-title">${ev.title||''}</div>
-          <span class="chip ${chip}">${label}</span>
-        </div>
-        <div class="evt-card-meta">
-          <span>📅 ${ev.date||''} ${ev.time?'· ⏰ '+ev.time:''}</span>
-          ${ev.place?'<span>📍 '+ev.place+'</span>':''}
-          <span>👤 ${resp}</span>
-        </div>
-      </div>
-      <div class="evt-card-actions">
-        <button class="evt-action edit" onclick="editEvent('${id}')">✏️ Modifica</button>
-        <button class="evt-action done" onclick="markDone('${id}')">✓ Concluso</button>
-        <button class="evt-action del" onclick="delEvent('${id}')">✕ Elimina</button>
-      </div>`;
-    list.appendChild(div);
-  });
-}
 
 // ── Eventi CRUD ──
 window.saveEvent = function() {
@@ -983,6 +946,7 @@ function renderAppts(p, appts) {
 onValue(ref(db,'shared/events'), snap => {
   allEvents = snap.val()||{};
   renderCal();
+    renderEvents();
 });
 
 onValue(ref(db,'shared/todos'), snap => {
