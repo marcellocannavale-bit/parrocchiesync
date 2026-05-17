@@ -669,19 +669,8 @@ window.editEvent = function(id) {
   document.getElementById('evResp').value = ev.resp||'entrambi';
   document.getElementById('evNote').value = ev.note||'';
   openSheet('evSheet');
-};dow.editEvent = function(id) {
-  const ev = allEvents[id];
-  document.getElementById('evId').value = id;
-  document.getElementById('evTitle').value = ev.title||'';
-  document.getElementById('evDate').value = ev.date||'';
-  document.getElementById('evTime').value = ev.time||'';
-  document.getElementById('evPlace').value = ev.place||'';
-  document.getElementById('evParr').value = ev.parr||'condiviso';
-  document.getElementById('evResp').value = ev.resp||'entrambi';
-  document.getElementById('evNote').value = ev.note||'';
-  openSheet('evSheet');
 };
-
+  
 window.delEvent = function(id) {
   if(confirm('Eliminare questo evento?')) remove(ref(db,'shared/events/'+id));
 };
