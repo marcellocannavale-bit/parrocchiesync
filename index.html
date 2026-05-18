@@ -174,6 +174,7 @@ html,body{height:100%;width:100%;overflow-x:hidden;font-family:'Nunito',sans-ser
 .empty{text-align:center;padding:30px 20px;color:var(--g400)}
 .empty-icon{font-size:2.5rem;margin-bottom:8px}
 .empty-text{font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600}
+.login-ov{position:fixed;inset:0;z-index:9999;background:linear-gradient(160deg,#0f2817 0%,#1e4d2b 60%,#163520 100%);display:flex;align-items:center;justify-content:center;padding:24px}.login-ov.hidden{display:none}.login-box{background:#fff;border-radius:20px;padding:32px 26px 28px;width:100%;max-width:340px;box-shadow:0 24px 64px rgba(0,0,0,.45)}.login-church{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px}.login-church img{width:40px;height:40px;border-radius:8px;object-fit:contain}.login-h{font-family:'Poppins',sans-serif;font-size:1rem;font-weight:800;color:var(--g900);text-align:center}.login-sub{font-size:.68rem;color:var(--g500);text-align:center;margin:2px 0 22px}.login-label{font-family:'Poppins',sans-serif;font-size:.7rem;font-weight:700;color:var(--g700);display:block;margin-bottom:4px}.login-err{background:var(--red-bg);color:var(--red-dark);border-radius:8px;padding:8px 12px;font-size:.75rem;font-weight:700;text-align:center;margin-top:10px;display:none}
 </style>
 </head>
 <body>
@@ -189,7 +190,7 @@ html,body{height:100%;width:100%;overflow-x:hidden;font-family:'Nunito',sans-ser
     </div>
     <button class="notif-btn" onclick="openSheet('notifSheet')">🔔</button>
   </div>
-  <div class="priest-bar">
+  <div class="priest-bar" style="display:none">
     <span style="font-family:'Poppins',sans-serif;font-size:.72rem;font-weight:700;color:var(--g500);align-self:center;white-space:nowrap">ACCEDI COME:</span>
     <button class="priest-pill ap1" id="pp1" onclick="setActivePriest(1)"><span class="pdot pdot-v"></span>Don Marcello</button>
     <button class="priest-pill" id="pp2" onclick="setActivePriest(2)"><span class="pdot pdot-t"></span>Don Mario</button>
@@ -970,10 +971,13 @@ onValue(ref(db,'personal/p2/appts'), snap => {
 
 // ── Init ──
 setActivePriest(1);
+const CREDS={marcello:{pw:'valle2024',role:'p1'},mario:{pw:'trinita2024',role:'p2'},ospite:{pw:'spese2024',role:'guest'}};let currentRole=null;window.doLogin=function(){const u=document.getElementById('lgU').value.trim().toLowerCase();const p=document.getElementById('lgP').value;const err=document.getElementById('lgErr');const match=CREDS[u];if(match&&match.pw===p){currentRole=match.role;document.getElementById('loginOv').classList.add('hidden');applyRole(currentRole);}else{err.style.display='block';document.getElementById('lgP').value='';}};function applyRole(role){const nav=document.querySelectorAll('.nav-item');const fab=document.getElementById('mainFab');if(role==='guest'){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById('sec-spese').classList.add('active');nav.forEach(b=>b.classList.remove('active'));document.querySelector('[onclick*="spese"]').classList.add('active');fab.style.display='flex';fab.className='fab red';document.querySelector('.priest-bar').style.display='none';}else{document.querySelector('.priest-bar').style.display='flex';if(role==='p1'){document.getElementById('pb2').style.display='none';setActivePriest(1);}else{document.getElementById('pb1').style.display='none';setActivePriest(2);}}}window.switchSection=function(name,el){if(currentRole==='guest'&&name!=='spese')return;document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById('sec-'+name).classList.add('active');document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));el.classList.add('active');const fab=document.getElementById('mainFab');fab.style.display=['agenda','todo','spese'].includes(name)?'flex':'none';if(name==='agenda'){fab.className='fab';}else if(name==='todo'){fab.className='fab green';}else if(name==='spese'){fab.className='fab red';}};
 renderCal();
 const today = new Date();
 document.getElementById('evDate').value = today.toISOString().split('T')[0];
 document.getElementById('spDate').value = today.toISOString().split('T')[0];
 </script>
+<div class="login-ov" id="loginOv"><div class="login-box"><div class="login-church"><img src="logo-valle.jpg" alt="Valle"><img src="logo-trinita.jpg" alt="Trinita" style="border-radius:50%"></div><div class="login-h">Agenda Parrocchiale</div><div class="login-sub">Valle &amp; Trinita &mdash; Accesso riservato</div><div class="form-group" style="margin-bottom:12px"><label class="login-label">UTENTE</label><input class="form-input" id="lgU" placeholder="nome utente" autocomplete="username" style="text-transform:lowercase"></div><div class="form-group" style="margin-bottom:16px"><label class="login-label">PASSWORD</label><input type="password" class="form-input" id="lgP" placeholder="password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div><button class="btn-pri" onclick="doLogin()" style="width:100%;padding:14px">Accedi</button><div class="login-err" id="lgErr">Credenziali non valide. Riprova.</div></div></div>
 </body>
 </html>
+
